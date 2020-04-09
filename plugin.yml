@@ -19,7 +19,7 @@ permissions:
                         description: "Prevent the player from being banned"
             essentials.colorchat:
                 default: op
-                description: "Allow to chat using colors!"
+                description: "Allow to chat using color!"
             essentials.afk:
                 default: false
                 description: "Toggle the AFK status"
