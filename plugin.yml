@@ -8,7 +8,7 @@ website: https://github.com/LegendOfMCPE/EssentialsPE
 permissions:
     essentials:
         default: false
-        description: "Allow to access to every EssentialsPE feature"
+        description: "Allow to access to every EssentialsPE features"
         children:
             essentials.ban:
                 default: false
