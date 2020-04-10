@@ -16,7 +16,7 @@ permissions:
                 children:
                     essentials.ban.exempt:
                         default: op
-                        description: "Prevent the player from being bannd"
+                        description: "Prevent the player from being banned"
             essentials.colorchat:
                 default: op
                 description: "Allow to chat using color!"
