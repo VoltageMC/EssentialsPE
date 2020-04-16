@@ -401,11 +401,4 @@ class Loader extends PluginBase{
             }
         }
     }
-
-    /**
-     * @return BaseAPI
-     */
-    public function getAPI(): BaseAPI{
-        return $this->api;
-    }
 }
