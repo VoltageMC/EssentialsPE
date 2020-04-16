@@ -150,6 +150,9 @@ permissions:
                     essentials.feed.other:
                         default: op
                         description: "Feed other players"
+                    essentials.feed.instant:
+                        default: op
+                        description: "Bypass feed cooldown"
             essentials.gamemode:
                 default: false
                 description: "Change your gamemode!"
