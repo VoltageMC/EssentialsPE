@@ -151,6 +151,7 @@ class Loader extends PluginBase{
             new Depth($this->getAPI()),
             new EssentialsPE($this->getAPI()),
             new Extinguish($this->getAPI()),
+	    new Feed($this->getAPI()),
             new Fly($this->getAPI()),
             new GetPos($this->getAPI()),
             new God($this->getAPI()),
