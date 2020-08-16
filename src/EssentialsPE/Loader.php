@@ -151,6 +151,7 @@ class Loader extends PluginBase{
             new Depth($this->getAPI()),
             new EssentialsPE($this->getAPI()),
             new Extinguish($this->getAPI()),
+	    new Feed($this->getAPI()),
             new Fly($this->getAPI()),
             new GetPos($this->getAPI()),
             new God($this->getAPI()),
@@ -399,12 +400,5 @@ class Loader extends PluginBase{
                 $this->getConfig()->setNested("updater." . $key, $value);
             }
         }
-    }
-
-    /**
-     * @return BaseAPI
-     */
-    public function getAPI(): BaseAPI{
-        return $this->api;
     }
 }

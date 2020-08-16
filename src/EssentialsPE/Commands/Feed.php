@@ -27,6 +27,19 @@ class Feed extends BaseCommand{
      * @return bool
      */
     public function execute(CommandSender $sender, string $alias, array $args): bool{
+        $this->wait = 120;
+        $t = microtime(true);
+
+        if (isset($this->cooldown[$sender->getName()]) && $this->cooldown[$sender->getName()] + $this->wait > $t && !$sender->hasPermission(Main::PERMISSION_PREFIX."essentials.feed.instant")) {
+            $min = (int)floor(($this->cooldown[$sender->getName()] + $this->wait - $t)/60);
+            if($min == 0){
+                $sender->sendMessage(TextFormat::colorize("&7You need to wait &b".date("s", (int)$this->cooldown[$sender->getName()] + $this->wait - (int)$t)."&7 seconds before you can use this command again."));
+            }else{
+                $sender->sendMessage(TextFormat::colorize("&7You need to wait &b" . $min . "&7 minutes and &b".date("s", (int)$this->cooldown[$sender->getName()] + $this->wait - (int)$t)."&7 seconds before you can use this command again."));
+            }
+            return true;
+        }
+
         if(!$this->testPermission($sender)){
             return false;
         }
@@ -46,6 +59,7 @@ class Feed extends BaseCommand{
         $player->setFood(20);
         $player->getLevel()->addParticle(new HappyVillagerParticle($player->add(0, 2)));
         $player->sendMessage(TextFormat::GREEN . "You have been fed!");
+        $this->cooldown[$sender->getName()] = $t;
         if($player !== $sender){
             $sender->sendMessage(TextFormat::GREEN . $player->getDisplayName() . " has been fed!");
         }
